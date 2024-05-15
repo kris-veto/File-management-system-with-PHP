@@ -1,1 +1,0 @@
-This program contains a singup, login and logout system. Once you access to the dashboard, you are able to upload product information(product name, price, quantity, description) and product image file to the product catalog. on the view page the user can performance CRUD operations like edit and delete on each product. 
