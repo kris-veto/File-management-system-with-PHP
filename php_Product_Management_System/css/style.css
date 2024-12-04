@@ -71,7 +71,9 @@ section{
 }
 
 h2{
-  margin: 1%;
+  margin: 2%;
+  font-family: "Roboto", sans-serif;
+  text-align:center;
 }
 
 input[type="submit"]{
@@ -86,4 +88,40 @@ input[type="submit"]{
 input[type="submit"]:hover {
   background: #e68a00;
   color: white; 
+}
+
+
+.img-fluid{
+  width: 10vw;
+  height: auto;
+}
+
+/***/
+
+table{
+  font-family: "Roboto", sans-serif;
+  scale: 0.8;
+  border: 1px solid lightgray;
+  border-collapse: collapse;
+  width: 100%;
+}
+th {
+  min-width: 7vw;
+  background-color: rgb(214, 229, 255); /* Blue background for header */
+  padding: 8px;
+  text-align: left;
+  font-weight: bold;
+  }
+td {
+  
+  padding: 8px;
+  border: 1px solid lightgray; /* Light gray border for rows */
+  text-align: center;
+}
+tr{
+  
+  justify-content: left
+}
+tr: hover{
+  background-color:#E8E8E8;
 }
