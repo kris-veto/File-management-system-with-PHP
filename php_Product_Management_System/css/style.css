@@ -1,39 +1,44 @@
+*{
+  margin: 0;
+  padding: 0;
+} 
+
 html{
-  height:100%; /* tecnica 1 para footer****************/
+  height:100%; 
 }
 
 body{
   margin: 0px;
-  display:flex; /* tecnica 1 para footer****************/
-  flex-direction:column; /* tecnica 1 para footer****************/
-  min-height: 100%;  /* tecnica 1 para footer****************/
+  display: flex; 
+  flex-direction: column; 
+  min-height: 100%; 
 
 }
-section{
 
+section{
   display: flex; 
-  flex-direction:row;
+  flex-direction: row;
   min-height: 80vh;
 }
 .content-right{
-  background-image: url("//live.staticflickr.com/7847/45606186465_9312b1ed6a_z.jpg");
+  background-image: url("https://scontent.fyyz1-2.fna.fbcdn.net/v/t39.30808-6/310094743_407454664909984_7598802530665644239_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=6pvJ2rdI74AQ7kNvgF7hC3x&_nc_zt=23&_nc_ht=scontent.fyyz1-2.fna&_nc_gid=AKz3qLZLISA-UO0f4qOStkb&oh=00_AYD0y969va5-lkVT2av6o6c6Zxy8WHJIL5eV2o-ANId5FA&oe=6758EBA1");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  /* height: 80vh; */
   width: 100vw;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .wrap-text{
   text-align: center;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
-  color:aliceblue;
+  color: aliceblue;
   font-size: large;
-  
 }
+
 .content-left{
   display: flex; 
   flex-direction: column;
@@ -42,11 +47,9 @@ section{
   text-align: center; 
   font-family: "Roboto", sans-serif;
   font-weight: 300;
-  /* height: 70vh; */
   width: 100vw;
-  margin-bottom:4%;
+  margin-bottom: 0%;
 }
-/* @querySelect */
 
 .form1{
   display: flex;
@@ -58,9 +61,9 @@ section{
 }
 
 .form2 label,.form2 input {
-  vertical-align: middle; /* Ajusta el espacio entre elementos */
+  vertical-align: middle; /* adjust space between elements */
   justify-content: left; 
-  margin:1.5px;
+  margin: 1.5px;
   
 }
 
@@ -70,26 +73,25 @@ section{
   line-height: 0.7;
 }
 
-h1{
+h2{
   margin: 2%;
   font-family: "Roboto", sans-serif;
-  text-align:center;
+  text-align: center;
 }
 
-input[type="submit"]{
-  background-color: #ffce39;
-  border: none; 
-  padding: 4px 30px; 
-  cursor: pointer; 
-  border-radius: 5px; 
-  
+#search-form{
+  display: flex; /* Flexbox for centering */
+  justify-content: center; /* Horizontal alignment */
+  align-items: center; /* Vertical alignment */
+ 
 }
 
-input[type="submit"]:hover {
-  background: #e68a00;
-  color: white; 
+#search-form input[type="text"] {
+  margin: 5px; /* Space between elements */
+  padding: 5px; /* Inner padding for better usability */
+  border-color: gray;
+  border-radius: 15px; /* Rounded corners */
 }
-
 
 .img-fluid{
   width: 10vw;
@@ -100,28 +102,80 @@ input[type="submit"]:hover {
 
 table{
   font-family: "Roboto", sans-serif;
-  scale: 0.8;
+  scale: 0.95;
   border: 1px solid lightgray;
   border-collapse: collapse;
-  width: 100%;
+  max-width: 80%;
+  margin: 0 auto;
 }
+
 th {
   min-width: 7vw;
   background-color: rgb(214, 229, 255); /* Blue background for header */
   padding: 8px;
-  text-align: left;
+  text-align: center;
   font-weight: bold;
   }
+
 td {
-  
   padding: 8px;
   border: 1px solid lightgray; /* Light gray border for rows */
-  text-align: center;
 }
-tr{
-  
-  justify-content: left
+
+tr.table-primary{
+  justify-content: left;
+  margin: 0 0;
 }
 tr: hover{
   background-color:#E8E8E8;
 }
+
+/**Responsive*/
+
+/****/
+@media(max-width: 30em){
+  
+  table tr{
+    display: flex;
+    flex-direction: column;
+    border: 0.5px solid gray;
+    margin-bottom: 0.5em;
+  }
+  table td{
+    border: 0px;
+    padding: 5%;
+  }
+  table th{
+    display: none;
+  }
+  table td[data-title]{
+    display: flex;
+    
+  }
+  table td[data-title]::before{
+    content: attr(data-title);
+    scale:0.9;
+    min-width: 25%;
+    font-weight: 700;
+    color: gray;
+  }
+  .img-fluid{
+    width: 90%;
+    height:auto;
+  }
+
+  .content-right{
+
+    display: none;
+
+  }
+  .content-left{
+    background-image: url("https://scontent.fyyz1-2.fna.fbcdn.net/v/t39.30808-6/310094743_407454664909984_7598802530665644239_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=6pvJ2rdI74AQ7kNvgF7hC3x&_nc_zt=23&_nc_ht=scontent.fyyz1-2.fna&_nc_gid=AKz3qLZLISA-UO0f4qOStkb&oh=00_AYD0y969va5-lkVT2av6o6c6Zxy8WHJIL5eV2o-ANId5FA&oe=6758EBA1");
+    background-position: center center;
+    background-size: cover;
+    height: 80vh;
+    margin-bottom:0;
+    color: white;
+    font-weight:700;
+    }
+  }
