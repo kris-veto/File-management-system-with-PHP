@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include './inc/header.php';
 require './inc/database.php';
 
