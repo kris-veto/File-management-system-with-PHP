@@ -11,18 +11,16 @@ require './inc/database.php';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>view</title>
-  
-  <script>
-        function confirmDelete(id) {
-            return confirm("Are you sure you want to delete this record with id " + id + "?");
-        }
-  </script>
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-<h1>Product Catalog</h1>
-
+<h2>Product Catalog</h2>
+    </br>
+    <form id="search-form" onsubmit="return false;">
+        <input type="text" id="search" placeholder="Search product here...">
+    </form>
+    <div id="results"></div>
       <table class="table">
           <thead>
               <tr class= table-primary>
