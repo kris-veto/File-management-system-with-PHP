@@ -14,15 +14,10 @@
                 <a href="login.php"><img src="./img/logo.png" alt="Logo"></a>
             </div>
             <div class="footer-text">
-                © 2024 All rights reserved.
+                © 2024 Created by Crhistian Vera.
             </div>
         </div>
-        
-        <form id="search-form" action="/buscar" method="post">
-            <input type="text" id="search-box" name="q" placeholder="Search...">
-            <button>Search</button>
-            
-        </form>
+    
         <nav>
             <a href="privacy.html">Privacy Politics</a>
             <a href="terms.html">Service</a>
