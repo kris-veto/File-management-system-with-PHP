@@ -59,26 +59,15 @@ if($_SERVER["REQUEST_METHOD"]=="POST" ){
   {
     $id=$_POST["id"];
     $ProductName=$_POST["Product_name"];
-          if (strpos($ProductName, ' ') !== false) {   //Validation of ProductName
-            $ProductName = str_replace(' ', '', $ProductName); // Remove spaces
-          }
     $Price=$_POST["Price"];   
     $Qty=$_POST["Quantity"];
     $Description=$_POST["Description"];
-          if (strpos($Description, ' ') !== false) {   //Validation of Description
-            $Description = str_replace(' ', '', $Description); // Remove spaces
-          }
     
-    // $name=$_POST["name"];  //
     // $image=$_POST["image"];    ///
          
       $query = "update product_info set Product_name='$ProductName', Price='$Price', Quantity='$Qty', Description='$Description'where id='$id'";
 
       $conn->query($query);
-
-
-
-
 
       $query = "INSERT INTO product_info(Product_name, Price, Quantity, Description,name, image)
     VALUES (?,?,?,?,?,?)";
@@ -86,7 +75,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST" ){
   }
   else if(isset($_POST["delete"]))  ////////////////////////////  delete  /////////////////////////////////////////
   {
-    
       $id = $_POST["id"];
       $sql = "delete from product_info where id='$id'";
       $conn->query($sql);
@@ -102,19 +90,18 @@ if($_SERVER["REQUEST_METHOD"]=="POST" ){
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>view</title>
-  
-  <script>
-        function confirmDelete(id) {
-            return confirm("Are you sure you want to delete this record with id " + id + "?");
-        }
-  </script>
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-<h1>Product Catalog</h1>
-     
-      <table class="tabler">
+<h2>Product Catalog</h2>
+  <!-- IPORTANT!!! IMPLEMENT ANOTHER SEARCH SCRIPT FOR CTHE RUD SECTION FOCUSED ON ID-->     
+      <!-- <form id="search-form" onsubmit="return false;">
+        <input type="text" id="" placeholder="Search here">
+      </form> -->
+
+      <div id="results"></div>
+      <table class="table">
           <thead>
               <tr class= table-primary>
                   <th>Product Id</th>
@@ -137,21 +124,22 @@ if($_SERVER["REQUEST_METHOD"]=="POST" ){
               while($row=$result->fetch_assoc())
               {
               echo "<tr>";
-              echo "<td>".$row["id"]."</td>";
-              echo "<td>".$row["Product_name"]."</td>";
-              echo "<td>$".$row["Price"]."</td>";
-              echo "<td>".$row["Quantity"]."</td>";
-              echo "<td>".$row["Description"]."</td>";
+              echo "<td data-title=\"ID: \">".$row["id"]."</td>";
+              echo "<td data-title=\"Name: \">".$row["Product_name"]."</td>";
+              echo "<td data-title=\"Price: \">$".$row["Price"]."</td>";
+              echo "<td data-title=\"Quantity: \">".$row["Quantity"]."</td>";
+              echo "<td data-title=\"Desc:     \">".$row["Description"]."</td>";
               
               echo "<td><img src='".$row['image']."' title='".$row['Product_name']."' class='img-fluid'></td>";
               
+                // effective when editing product
               echo "<td>
-              <form method='POST'>
-              <input type='hidden' name='id' value=' ".$row["id"]."'>
-              <input type='text' name='Product_name' value=' ".$row["Product_name"]."'>
-              <input type='int' name='Price' value=' ".$row["Price"]."'>
-              <input type='int' name='Quantity' value=' ".$row["Quantity"]."'>
-              <input type='text' name='Description' value=' ".$row["Description"]."'>
+              <form method='POST'> 
+              <input type='hidden' name='id' value='".$row["id"]."'>
+              <input type='text' name='Product_name' value='".$row["Product_name"]."'>
+              <input type='int' name='Price' value='".$row["Price"]."'>
+              <input type='int' name='Quantity' value='".$row["Quantity"]."'>
+              <input type='text' name='Description' value='".$row["Description"]."'>
               
               
               
@@ -166,7 +154,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST" ){
           }
           ?>
           </tbody>
-      </table>          
+      </table> 
+  <script src="js/script.js"></script>
 </body>
 </html>
 
